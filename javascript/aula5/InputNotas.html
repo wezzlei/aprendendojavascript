@@ -1,0 +1,54 @@
+<!-- Exercicio criar pagina com tres campos para o usuario digitar tres notas ao clicar no botao informar-->
+<!-- a media e se o aluno foi aprovado ou reprovado aprovado media deve ser maior que 6. -->
+ 
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+ </head>
+  <body>
+    <h3>Olá, caro professor por favor digite as 3 notas do aluno.</h3>
+
+    <input type="number" id="numeroDigitado">
+    <br>
+    <input type="number" id="numeroDigitado1"> 
+    <br>
+    <input type="number" id="numeroDigitado2">
+    <br>
+    <input type="button" class="button" value="Clique aqui para calcular a nota media do aluno." onclick="mediaNotas()">
+    <br>
+    <br>
+    <input type="text" id="notaMedia" disabled>
+
+        <script>
+              function mediaNotas()
+              {
+                let a = parseFloat(document.getElementById('numeroDigitado').value);
+
+                let b = parseFloat(document.getElementById('numeroDigitado1').value);
+
+                let c = parseFloat(document.getElementById('numeroDigitado2').value);
+
+                let media= ((a+b+c)/3);
+                if(media>=6)
+                {
+                    document.getElementById('notaMedia').value='Esta é sua media ' + media + ' você esta aprovado.';
+                }
+
+                else
+            {
+                document.getElementById('notaMedia').value='Esta é sua media ' + media + ' você esta reprovado.';
+            }
+
+              }
+             
+        </script>
+ 
+  </body>
+
+</html>

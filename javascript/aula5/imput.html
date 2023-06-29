@@ -1,0 +1,40 @@
+<!-- Exercicio criar um progama usando input que informe se o numero digitado é par ou impar. -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h3>Olá, caro navegador por favor digite um numero aleatorio.</h3>
+
+<body>
+   <input type="number" id="numeroDigitado">
+   <input type="button" value="clique aqui para calcular" onclick="verificarNumero()">
+   <br>
+   <br>
+
+   <input type="text" id="verificado" disabled>
+
+    
+    <script>
+        function verificarNumero()
+        {
+            let b = parseInt(document.getElementById('numeroDigitado').value);
+            
+            if (b % 2 == 0)
+            {
+               document.getElementById('verificado').value='Este numero ' + b + ' é par.';
+            }
+
+          else
+            {
+               document.getElementById('verificado').value='Este numero ' + b + ' é impar.';
+            }
+        }
+
+    </script>
+</body>
+</html>
