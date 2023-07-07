@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Lista de compras</h1>
+    <label>Insira os items aqui e clique</label>
+    <input type="text" id="entradausuario">
+    <input type="button" value="INSERIR ITEM" onclick="inserir()">
+    <ol id="lista">     
+    </ol>
+    <input type="button" value="REMOVER ÚLTIMO" onclick="removerUlt()">
+    <input type="button" value="REMOVER PRIMEIRO" onclick="removerPri()">
+    <!--   
+document.createTextnode(nó de texto na arvore DOM: ('olá mundo') )
+document.createElement(elementos html: ul, section)
+appendChild() - nomedoobjeto.appendChild()
+.innerhtml=""- altera o texto descrito no html
+.style.propriedade - altera o valor de uma propriedade css
+-->
+<br>
+<br>
+<input type="number" id="campoNumRemover">
+<input type="button" value="REMOVER" onclick="removerEspecifico()">
+<script >
+function inserir() 
+    {
+        let itemusuario= document.getElementById('entradausuario').value;
+        let textnode = document.createTextNode(itemusuario);
+    
+        let elementofilholi = document.createElement('li');        
+        elementofilholi.appendChild(textnode);
+    
+        let elementopaiul = document.getElementById('lista');
+        elementopaiul.appendChild(elementofilholi);
+
+        document.getElementById('entradausuario').focus();
+    }    
+function removerUlt() 
+    {        
+        let elementopaiul = document.getElementById('lista');
+        let itemARemover = elementopaiul.lastElementChild;
+
+        elementopaiul.removeChild(itemARemover);
+    }    
+function removerPri() 
+    {        
+        let elementopaiul = document.getElementById('lista');
+        let itemARemover = elementopaiul.firstElementChild;
+        console.log(itemARemover);
+        elementopaiul.removeChild(itemARemover);
+    }   
+function removerEspecifico()
+{
+    let elementoPaiOL = document.getElementById('lista');
+    let itemRemover = document.getElementById('campoNumRemover').value;    
+    
+    let item = elementoPaiOL.childNodes[itemRemover];
+
+    elementoPaiOL.removeChild(item);
+}
+
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1> lista de compras</h1>
+    <label>Digite os itens aqui e clique em inserir</label>
+    <input type="text" id="entradaUsuario">
+    <input type="button" value="INSERIR ITEM" onclick="inserir()">
+    <ul id="lista">
+        <li>Item fixo</li>
+
+    </ul>
+
+
+<script>
+function inserir(){
+let itemUsuario = document.getElementById('entradaUsuario').value;
+let textNode = document.createTextNode(itemUsuario);
+
+let elementoFilhoLi = document.createElement('li');
+elementoFilhoLi.appendChild(textNode);
+
+let elementoPaiUl = document.getElementById('lista');
+
+elementoPaiUl.appendChild(elementoFilhoLi);
+
+}

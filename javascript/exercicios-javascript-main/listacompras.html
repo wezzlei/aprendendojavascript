@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercicio</title>
+</head>
+
+<body>
+    <div class="container" >
+    <label for="item">Digite o produto </label>
+    <input type="text" id="item" name="item" >
+    
+    <input type="button" class="btn" id="btn-calcular" value="INSERIR" onclick="insere()">
+    <br>
+    <br>
+    
+    <ul id="lista">
+        <h1>Lista de Compras:</h1>
+
+
+    </ul>
+    <input type="button" class="btn" id="btn-remover" value="REMOVER ÚLTIMO" 
+    onclick="remover()">
+    <br>
+    <br>
+    <br>
+    <a href="media.html">Clique aqui para exercício da média</a>
+    <a href="index.html">Clique aqui para exercício do numero par</a>
+
+</div>
+</body>
+</html>
+<script>
+    function insere() {         
+       
+        const textoExtraídoDaEntrada = document.getElementById('item').value
+
+        const elementoFilhoLi = document.createElement('li');
+        const texto = document.createTextNode(textoExtraídoDaEntrada);
+        elementoFilhoLi.appendChild(texto);
+
+        elementoFilhoLi.style.width =  '25%';
+        elementoFilhoLi.style.margin = 'auto';
+        elementoFilhoLi.style.listStyle = 'number';
+        elementoFilhoLi.style.marginBottom = '10px';
+
+        const elementoPaiUl = document.getElementById('lista');
+
+        elementoPaiUl.appendChild(elementoFilhoLi);
+
+        console.log(item);
+        console.log(item.value);
+        console.log(texto);           
+        
+    }
+    function remover() 
+    {        
+        let elementopaiul = document.getElementById('lista');
+        let itemARemover = elementopaiul.lastElementChild;
+        elementopaiul.removeChild(itemARemover);
+    }    
+
+</script>

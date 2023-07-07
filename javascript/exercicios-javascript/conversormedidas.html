@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Exercicio</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Conversor de Medidas</h1>
+
+      <label for="input">Converter de: </label>
+      <input type="number" id="input" placeholder=" " />
+
+      <label for="from">De:</label>
+      <select id="from">
+        <option value="m">Metro(s)</option>
+        <option value="km">Quilômetro(s)</option>
+        <option value="cm">Centímetro(s)</option>
+        <option value="mm">Milímetro(s)</option>
+      </select>
+
+      <label for="to">Para:</label>
+      <select id="to">
+        <option value="m">Metro(s)</option>
+        <option value="km">Quilômetro(s)</option>
+        <option value="cm">Centímetro(s)</option>
+        <option value="mm">Milímetro(s)</option>
+      </select>
+
+      <button id="btn-convert" class="btn">CONVERTER</button>
+      <br />
+      <br />
+      <label for="output">Resultado:</label>
+      <input type="text" id="output" disabled="true" />
+      <div id="message"></div>
+      <br />
+      <br />
+      <br />
+
+      <a href="index.html">Clique aqui para exercício do numero par</a>
+      <a href="listacompras.html">Clique aqui para lista de compras</a>
+      <a href="media.html">Clique aqui para exercício da média</a>
+    </div>
+  </body>
+</html>
+<script>
+  //selecionando os elementos através de seus ID
+  const inputElement = document.querySelector("#input");
+  const fromElement = document.querySelector("#from");
+  const toElement = document.querySelector("#to");
+  const outputElement = document.querySelector("#output");
+  const messageElement = document.querySelector("#message");
+  const convertButon = document.querySelector("#btn-convert");
+
+  convertButon.addEventListener("click", Convert);
+
+  function Convert() {
+    //selecionando apenas o valor dos campos DE e PARA
+    const fromValue = fromElement.value;
+    const toValue = toElement.value;
+
+    //se a unidade de entrada for igual a unidade de saída
+    if (fromValue == toValue) {
+      outputElement.value = inputElement.value;
+      messageElement.textContent = "";
+      return; //retorna (finaliza função)
+    }
+
+    //passo 1: converter o valor de entrada para metros e gravar na variável METERS
+    let meters;
+
+    switch (fromValue) {
+      case "m":
+        meters = inputElement.value;
+        break;
+      case "km":
+        meters = inputElement.value * 1000;
+        break;
+      case "cm":
+        meters = inputElement.value / 100;
+        break;
+      case "mm":
+        meters = inputElement.value / 1000;
+        break;
+    }
+
+    //passo 2: Converter o valor em metros para o valor de saída e salvar na variável RESULT
+    let result;
+
+    switch (toValue) {
+      case "m":
+        result = meters;
+        break;
+      case "km":
+        result = meters / 1000;
+        break;
+      case "cm":
+        result = meters * 100;
+        break;
+      case "mm":
+        result = meters * 1000;
+        break;
+    }
+
+    //exibir o  resultado no imput de saida
+    outputElement.value = result;
+
+    var fromIndex = document.getElementById("from").selectedIndex;
+    var fromOpcao = document.getElementById("from").options;
+   
+   // alert("Index: " + y[x].index + " is " + y[x].text);
+
+   
+    var toIndex = document.getElementById("to").selectedIndex;
+    var toOpcao = document.getElementById("to").options;
+
+    messageElement.textContent = inputElement.value +' '+ fromOpcao[fromIndex].text +' equivale a '+ result+' '+toOpcao[toIndex].text ;
+  }
+</script>

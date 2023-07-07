@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercicio</title>
+</head>
+
+<body align="center">
+    <div class="container" align="center">
+    <label for="num">Digite o numero aqui: </label>
+    <input type="text" name="num" id="num">
+    <input type="button" class="btn" name="btn-calcular" id="btn-calcular" value="CALCULAR" onclick="calcula()">
+    <br>
+    <br>
+    <label for="resultado">Este é o dobro: </label>
+    <input type="text" name="resultado" id="resultado" disabled="true">
+    <br>
+    <br>
+    <label for="msgPar">Aqui eu vou dizer se o numero que voce digitou é par ou impar: </label>
+    <input type="text" name="msgPar" id="msgPar" disabled="true">
+    <br>
+    <br>    
+    <a href="listacompras.html">Clique aqui para lista de compras</a>
+    <a href="media.html">Clique aqui para exercício da média</a>
+    <a href="conversormedidas.html">Clique aqui para conversor de medidas</a>
+</div>
+</body>
+</html>
+<script>
+    function calcula() { 
+        
+        let numero = document.getElementById('num').value;
+
+        let dobro = numero * 2;
+
+        document.getElementById('resultado').value = dobro;
+
+        if (numero % 2 == 0) {
+            document.getElementById('msgPar').value = 'O NUMERO DIGITADO FOI PAR';
+        }
+        else {
+            document.getElementById('msgPar').value = 'O NUMERO DIGITADO FOI IMPAR';
+        }
+    }
+
+</script>

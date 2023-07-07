@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercicio</title>
+</head>
+
+<body>
+    <div class="container" >
+    <label for="item">Digite o produto </label>
+    <input type="text" id="item" name="item" >    
+    <input type="button" class="btn" id="btn-calcular" value="INSERIR" onclick="insere()">
+    <br>
+    <br>
+    <h1>Lista de Compras:</h1>
+    <ol id="lista">      
+        
+
+    </ol>
+    <input type="button" class="btn" id="btn-remover-ultimo" value="REMOVER ÚLTIMO" 
+    onclick="removerUltimo()">
+    <input type="button" class="btn" id="btn-remover-primeiro" value="REMOVER PRIMEIRO" 
+    onclick="removerPrimeiro()">
+    <br>
+    <input type="number" id="numero-usuario">    
+    <input type="button" class="btn" id="btn-remover-especifico" value="REMOVER" 
+    onclick="removerEspecifico()">
+    <br>
+    <br>
+    <a href="index.html">Clique aqui para exercício do numero par</a>
+    <a href="media.html">Clique aqui para exercício da média</a>
+    <a href="conversormedidas.html">Clique aqui para conversor de medidas</a>
+
+</div>
+</body>
+</html>
+<script>
+    function insere() {         
+       
+        const textoExtraídoDaEntrada = document.getElementById('item').value
+
+        const elementoFilhoLi = document.createElement('li');
+        const texto = document.createTextNode(textoExtraídoDaEntrada);
+        elementoFilhoLi.appendChild(texto);
+
+        elementoFilhoLi.style.width =  '25%';
+        elementoFilhoLi.style.margin = 'auto';
+        elementoFilhoLi.style.backgroundColor = '#fff';
+        elementoFilhoLi.style.marginBottom = '10px';
+
+        const elementoPaiUl = document.getElementById('lista');
+
+        elementoPaiUl.appendChild(elementoFilhoLi);
+
+        console.log(item);
+        console.log(item.value);
+        console.log(texto);           
+        
+    }
+    function removerUltimo() 
+    {        
+        let elementopaiul = document.getElementById('lista');
+        
+        elementopaiul.removeChild( elementopaiul.lastElementChild );
+    }    
+    function removerPrimeiro() 
+    {        
+        let elementopaiul = document.getElementById('lista');
+        let itemARemover = elementopaiul.firstElementChild;
+        elementopaiul.removeChild(itemARemover);
+    }  
+    
+    function removerEspecifico()
+{    //crio uma variavel para guardar o elemento pai completo
+    let elementoPaiOL = document.getElementById('lista');
+
+    //crio uma variavel para guardar o numero que o usuario digitou
+    let itemRemover = document.getElementById('numero-usuario').value;    
+    
+    //crio uma variavel para selecionar o item na lista de filhos 
+    let item = elementoPaiOL.childNodes[itemRemover];
+
+    //remover o item
+    elementoPaiOL.removeChild(item);
+}
+
+</script>

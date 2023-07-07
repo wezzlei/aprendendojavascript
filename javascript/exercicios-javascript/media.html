@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercicio</title>
+</head>
+
+<body align="center">
+    <div class="container" align="center">
+    <label for="num">Digite a primeira nota </label>
+    <input type="text" id="nota1">
+    <label for="num">Digite a segunda nota </label>
+    <input type="text" id="nota2">
+    <label for="num">Digite a terceira nota </label>
+    <input type="text" id="nota3">
+    <input type="button" class="btn" id="btn-calcular" value="CALCULAR" onclick="calcula()">
+    <br>
+    <br>
+    <label for="resultado"> Esta é a média final do aluno </label>
+    <input type="text" id="media" disabled="true">
+    <br>
+    <br>
+    <label for="msgPar">Resultado: </label>
+    <input type="text" id="msgAprovacao" disabled="true">
+    <br>
+    <br>
+    <a href="index.html">Clique aqui para exercício do numero par</a>
+    <a href="listacompras.html">Clique aqui para lista de compras</a>    
+    <a href="conversormedidas.html">Clique aqui para conversor de medidas</a>
+</div>
+</body>
+</html>
+<script>
+    function calcula() { 
+        
+        let nota1 = parseFloat(document.getElementById('nota1').value);
+        let nota2 = parseFloat(document.getElementById('nota2').value);
+        let nota3 = parseFloat(document.getElementById('nota3').value);
+        
+        
+        let media = (nota1 + nota2 + nota3) / 3 ;
+
+        document.getElementById('media').value = media;
+
+        if (media >= 6) {
+            document.getElementById('msgAprovacao').value = 'ALUNO APROVADO';
+            document.getElementById('msgAprovacao').style.color = "green";
+        }
+        else {
+            document.getElementById('msgAprovacao').value = 'ALUNO REPROVADO';
+            document.getElementById('msgAprovacao').style.color = "red";
+        }
+    }
+
+</script>
